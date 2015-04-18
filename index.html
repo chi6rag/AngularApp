@@ -1,17 +1,22 @@
 <!DOCTYPE html>
 <html ng-app="myApp">
-<head>
-	<meta charset="UTF-8">
-	<title>AngularJS App</title>
-	<script src="lib/angular/angular.min.js"></script>
-</head>
-<body>
-Angular Loads? {{1+2 == 3}}
-<div ng-controller="MyController">
-	<h2>Name: {{ details.name }}</h2>
-	<p>Email: {{ details.email }}</p>
-	<p>Experience: {{ details.experience }}</p>
-</div>
-<script src="js/controllers.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>AngularJS App</title>
+		<script src="lib/angular/angular.min.js"></script>
+		<link rel="stylesheet" type="text/css" href="css/style.css">
+	</head>
+	<body>
+		Angular Loads? {{1+2 == 3}}
+		<div class="main" ng-controller="MyController">
+			<ul class="artistlist">
+				<li class="artist cf" ng-repeat="item in artists">
+					<img ng-src="images/{{item.shortname}}_tn.jpg" alt="Photo of {{item.name}}" />
+					<h2>{{item.name}}</h2>
+					<h3>{{item.reknown}}</h3>
+				</li>
+			</ul>
+		</div>
+		<script src="js/controllers.js"></script>
+	</body>
 </html>
