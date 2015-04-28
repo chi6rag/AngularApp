@@ -13,9 +13,9 @@
 		<table>
 			<tr>
 				<th ng-click="sortBy='name'; reverse=!reverse">Name</th>
-				<th ng-click="sortBy='name'; reverse=!reverse">Order Total</th>
-				<th ng-click="sortBy='name'; reverse=!reverse">City</th>
-				<th ng-click="sortBy='name'; reverse=!reverse">Joined Date</th>
+				<th ng-click="sortBy='orderTotal'; reverse=!reverse">Order Total</th>
+				<th ng-click="sortBy='city'; reverse=!reverse">City</th>
+				<th ng-click="sortBy='joinedDate'; reverse=!reverse">Joined Date</th>
 			</tr>
 			<tr ng-repeat="customer in customers | filter: filterCustomers | limitTo: 4 | orderBy:sortBy:reverse">
 				<td>{{customer.name | uppercase}}</td>
@@ -28,11 +28,6 @@
 				<td>{{customers.length}}</td>
 			</tr>
 		</table>
-		<script type="text/javascript">
-		  var myApp = angular.module("myApp", []);
-			myApp.controller("CustomersController", function($scope){
-				$scope.customers=[{joinedDate: '2008-12-06', name: 'Chirag Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2006-12-01', name: 'Rajni Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-03-24', name: 'Palak Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-02-01', name: 'Deepak Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-08-05', name: 'Tushar Aggarwal', city: 'New Delhi', orderTotal: 9.5975}];
-			});
-		</script>
+		<script type="text/javascript" src="app/controllers/customersController.js"></script>
 	</body>
 </html>
