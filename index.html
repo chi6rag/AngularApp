@@ -5,19 +5,23 @@
 	<script type="text/javascript" src="scripts/angular.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
-	<body ng-init="people=[{name: 'Dave', city: 'New Delhi'}, {name: 'Jeff', city: 'New Delhi'}, {name: 'Heedy', city: 'New Delhi'}, {name: 'Danny', city: 'New Delhi'}]">
-		<ul>
-			<li ng-repeat="person in people">{{person.name + ' - ' + person.city}}</li>
-		</ul>
-		<hr />
+	<body ng-init="customers=[{joinedDate: '2008-12-06', name: 'Chirag Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2006-12-01', name: 'Rajni Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-03-24', name: 'Palak Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-02-01', name: 'Deepak Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-08-05', name: 'Tushar Aggarwal', city: 'New Delhi', orderTotal: 9.5975}]">
+		
+		<h2>Customers</h2>
+		Filter Results: <input type="text" ng-model="filterCustomers.name">
+
 		<table>
 			<tr>
-				<th>Name</th>
-				<th>City</th>
+				<th ng-click="sortBy='name'; reverse=!reverse">Name</th>
+				<th ng-click="sortBy='name'; reverse=!reverse">Order Total</th>
+				<th ng-click="sortBy='name'; reverse=!reverse">City</th>
+				<th ng-click="sortBy='name'; reverse=!reverse">Joined Date</th>
 			</tr>
-			<tr ng-repeat="person in people">
-				<td>{{person.name}}</td>
-				<td>{{person.city}}</td>
+			<tr ng-repeat="customer in customers | filter: filterCustomers | limitTo: 4 | orderBy:sortBy:reverse">
+				<td>{{customer.name | uppercase}}</td>
+				<td>{{customer.orderTotal | currency: 'Rs. '}}</td>
+				<td>{{customer.city | lowercase}}</td>
+				<td>{{customer.joinedDate | date: 'dd/MM/yyyy'}}</td>
 			</tr>
 		</table>
 	</body>

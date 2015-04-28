@@ -6,6 +6,26 @@
 	color: blue;
 }
 
+input {
+	padding: 0.4em; 
+	margin-bottom: 0.4em;
+}
+
+table {
+	border-collapse: collapse;
+	text-align: center;
+}	
+
+td, th {
+	border: 1px solid dimgrey;
+	padding: 0.4em;
+	border-spacing: 0px;
+}
+
+th {
+	background-color: lightgrey;
+}
+
 [ng\:cloak], [ng-cloak], [data-ng-cloak], [x-ng-cloak], .ng-cloak, .x-ng-cloak {
   display: none !important;
 }
