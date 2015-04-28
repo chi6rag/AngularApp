@@ -1,11 +1,11 @@
 <!DOCTYPE html>
-<html ng-app="">
+<html ng-app="myApp">
 <head>
 	<title>Angular JS Hello World</title>
 	<script type="text/javascript" src="scripts/angular.js"></script>
 	<link rel="stylesheet" type="text/css" href="stylesheets/style.css">
 </head>
-	<body ng-init="customers=[{joinedDate: '2008-12-06', name: 'Chirag Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2006-12-01', name: 'Rajni Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-03-24', name: 'Palak Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-02-01', name: 'Deepak Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-08-05', name: 'Tushar Aggarwal', city: 'New Delhi', orderTotal: 9.5975}]">
+	<body ng-controller="CustomersController">
 		
 		<h2>Customers</h2>
 		Filter Results: <input type="text" ng-model="filterCustomers.name">
@@ -23,6 +23,16 @@
 				<td>{{customer.city | lowercase}}</td>
 				<td>{{customer.joinedDate | date: 'dd/MM/yyyy'}}</td>
 			</tr>
+			<tr>
+				<td colspan='3'>Total Customers</td>
+				<td>{{customers.length}}</td>
+			</tr>
 		</table>
+		<script type="text/javascript">
+		  var myApp = angular.module("myApp", []);
+			myApp.controller("CustomersController", function($scope){
+				$scope.customers=[{joinedDate: '2008-12-06', name: 'Chirag Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2006-12-01', name: 'Rajni Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-03-24', name: 'Palak Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-02-01', name: 'Deepak Aggarwal', city: 'New Delhi', orderTotal: 9.5975}, {joinedDate: '2008-08-05', name: 'Tushar Aggarwal', city: 'New Delhi', orderTotal: 9.5975}];
+			});
+		</script>
 	</body>
 </html>
