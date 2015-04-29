@@ -27,10 +27,11 @@ myApp.controller("CustomersController", function($scope){
 */
 
 (function(){
-	var CustomersController = function($scope, customersService){
+	var CustomersController = function($scope, customersService, appSettings){
 		$scope.sortBy = 'name';
 		$scope.reverse = false;
-		$scope.customers = []
+		$scope.customers = [];
+		$scope.appSettings = appSettings;
 		function init(){
 			$scope.customers = customersService.getCustomers();
 		}
@@ -41,7 +42,7 @@ myApp.controller("CustomersController", function($scope){
 		}
 	}
 
-	CustomersController.$inject = ['$scope', 'customersService'];
+	CustomersController.$inject = ['$scope', 'customersService', 'appSettings'];
 
 	angular.module('customersApp').controller("CustomersController", CustomersController);
 }());
