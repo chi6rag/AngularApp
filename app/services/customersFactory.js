@@ -58,12 +58,11 @@
 				orderTotal: 500
 			}
 		];
-
-	}
 		var factory = {};
 		factory.getCustomers = function(){
 			return customers;
 		};
 		return factory;
+	}
 	angular.module('customersApp').factory('customersFactory', customersFactory);
 }());
