@@ -34,6 +34,7 @@ myApp.controller("CustomersController", function($scope){
 		function init(){
 			$scope.customers = customersFactory.getCustomers();
 		}
+		init();
 		$scope.doSort = function(propName){
 			$scope.sortBy = propName;
 			$scope.reverse = !$scope.reverse;
