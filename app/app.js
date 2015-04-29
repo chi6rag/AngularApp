@@ -5,14 +5,5 @@ myApp.config(function($routeProvider){
 	  	controller: "CustomersController",
 	  	templateUrl: "app/views/customers.html"
 	  })
-	  .when('/orders', {
-	  	controller: "OrdersController",
-	  	templateUrl: "app/views/orders.html"
-	  })
-	  .when("/editCustomer/:customerId", {
-	  	controller: "CustomerEditController",
-	  	templateUrl: "app/views/customerEdit.html"
-	  })
 	  .otherwise({ redirectTo: '/' });
 });
-var myAppTwo = angular.module("myAppTwo", []);
