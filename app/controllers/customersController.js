@@ -27,7 +27,7 @@ myApp.controller("CustomersController", function($scope){
 */
 
 (function(){
-	var CustomersController = function($scope, $routeParams){
+	var CustomersController = function($scope){
 		$scope.sortBy = 'name';
 		$scope.reverse = false;
 		$scope.customers=[
