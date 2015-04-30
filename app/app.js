@@ -9,4 +9,5 @@ myApp.config(function($routeProvider){
 	  	controller: "OrdersController",
 	  	templateUrl: "app/views/orders.html"
 	  });
+	  .otherwise({ redirectTo: '/' })
 });

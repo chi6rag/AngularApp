@@ -1,11 +1,17 @@
 (function(){
 	console.log("loaded orders controller")
-	var OrdersController = function($scope, $routeParams, customersService){
+	var OrdersController = function($scope, $routeParams, customersFactory){
 		var customerId = $routeParams.customerId;
 		$scope.customer = null; 
 
 		function init(){
-			$scope.customer = customersService.getCustomer(customerId);
+			customersFactory.getCustomer(customerId)
+				.success(function(customer){
+					$scope.customer = customer;
+				})
+				.error(function(data, status, headers, config){
+					// handle errors
+				});
 		}
 		init();
 	}
